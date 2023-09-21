@@ -16,19 +16,36 @@
 
 #include <systemc.h>
 #include "helper_fct.h"
+#include "counter.h"
 
 int sc_main(int argc, char* argv[]) {
+
+	sc_signal<double> period_sig;
+	sc_signal<bool> reset_sig, up_down_sig, load_sig;
+	sc_signal<int> data_in_sig;
+	sc_signal<int> Q_sig;
+	
+
+
 
 	/* Elaboration step */
 	DISPLAY("ELABORATION");
 
+	// Instantiations and port map
+	counter counter_inst("counter_inst");
+		counter_inst.period(period_sig);
+		counter_inst.reset(reset_sig);
+		counter_inst.up_down(up_down_sig);
+		counter_inst.load(load_sig);
+		counter_inst.data_in(data_in_sig);
+		counter_inst.Q(Q_sig);
 
 
 
 	/* Simulation step */
 	DISPLAY("START SIMULATION");
 
-	sc_start();
+	sc_start(350, SC_NS);
 
 	/* End of Simulation */
 	DISPLAY("END OF SIMULATION");

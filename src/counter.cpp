@@ -25,3 +25,6 @@ void counter::counter_thread() {
         cout << "Count = " << Q << endl;
     }
 }
+
+
+
