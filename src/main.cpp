@@ -17,6 +17,7 @@
 #include <systemc.h>
 #include "helper_fct.h"
 #include "counter.h"
+#include "user.h"
 
 int sc_main(int argc, char* argv[]) {
 
@@ -26,19 +27,24 @@ int sc_main(int argc, char* argv[]) {
 	sc_signal<int> Q_sig;
 	
 
-
-
 	/* Elaboration step */
 	DISPLAY("ELABORATION");
 
 	// Instantiations and port map
 	counter counter_inst("counter_inst");
-		counter_inst.period(period_sig);
-		counter_inst.reset(reset_sig);
-		counter_inst.up_down(up_down_sig);
-		counter_inst.load(load_sig);
-		counter_inst.data_in(data_in_sig);
-		counter_inst.Q(Q_sig);
+			counter_inst.period(period_sig);
+			counter_inst.reset(reset_sig);
+			counter_inst.up_down(up_down_sig);
+			counter_inst.load(load_sig);
+			counter_inst.data_in(data_in_sig);
+			counter_inst.Q(Q_sig);
+
+	user user_inst("user_inst");
+		 user_inst.period(period_sig);
+		 user_inst.reset(reset_sig);
+		 user_inst.up_down(up_down_sig);
+		 user_inst.load(load_sig);
+		 user_inst.data_in(data_in_sig);
 
 
 

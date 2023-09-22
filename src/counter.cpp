@@ -21,8 +21,8 @@ void counter::counter_thread() {
             }
         }
         // DISPLAY DATAS
-        DISPLAY(load);
-        cout << "Count = " << Q << endl;
+        //DISPLAY(load);
+        DISPLAY("Count = " << Q );
     }
 }
 
